@@ -1,5 +1,7 @@
 "use strict";
 
+import { readArtists, readTracks, readAlbums } from "./http.js";
+
 window.addEventListener("load", initApp);
 
 // ========== GLOBAL VARIABLES ========== //
