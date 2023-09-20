@@ -1,4 +1,4 @@
-const endpoint = "http://localhost:3333";
+const endpoint = "";
 
 // ----- Fetches artists ----- //
 async function readArtists() {
@@ -13,6 +13,13 @@ async function readTracks() {
   const tracksData = await response.json();
   return tracksData;
 }
+
+// // ---- Fetches a specific track ------ //
+// async function readTracks() {
+//   const response = await fetch(`${endpoint}/tracks${id}`);
+//   const tracksData = await response.json();
+//   return tracksData;
+// }
 
 // ----- Fetches albums ---- //
 async function readAlbums() {
