@@ -10,8 +10,16 @@ async function initApp(params) {
   globalEventListeners();
   const allData = await readEverything();
   displayEverything(allData);
+}
 
-  // displayArtists(artists);
+function globalEventListeners() {
+  document.querySelector("#searchSelect").addEventListener("change", searchChanged);
+  document.querySelector("#searchBar").addEventListener("keyup", searchChanged);
+  document.querySelector("#searchBar").addEventListener("search", searchChanged);
+  // document.querySelector("#btn-all").addEventListener("click", changeView);
+  // document.querySelector("#btn-artists").addEventListener("click", changeView);
+  // document.querySelector("#btn-albums").addEventListener("click", changeView);
+  // document.querySelector("#btn-tracks").addEventListener("click", changeView);
 }
 
 async function readEverything(params) {
@@ -28,12 +36,33 @@ function displayEverything(fullDataArray) {
   displayArtists(fullDataArray.artists);
 }
 
-function globalEventListeners() {
-  // document.querySelector("#searchForm").addEventListener("keyup",searchChanged)
-  document.querySelector("#searchSelect").addEventListener("change", searchChanged);
-  document.querySelector("#searchBar").addEventListener("keyup", searchChanged);
-  document.querySelector("#searchBar").addEventListener("search", searchChanged);
+function displaySelectedTables(tableToShow) {
+  console.log(tableToShow);
+  const artistTable = document.querySelector("#artists-table");
+  const trackTable = document.querySelector("#tracks-table");
+  const albumTable = document.querySelector("#albums-table");
+
+  const tableArray = [artistTable, trackTable, albumTable];
+  let boolCheck = true;
+
+  if (tableToShow === "combined") {
+    boolCheck = false;
+  }
+
+  for (const table of tableArray) {
+    table.hidden = boolCheck;
+  }
+
+  if (tableToShow !== "combined") {
+    document.querySelector(`#${tableToShow}-table`).hidden = false;
+  }
 }
+
+// function changeView(event) {
+//   console.log(event.target.value);
+//   const viewToShow = event.target.value;
+//   displaySelectedTables(viewToShow);
+// }
 
 async function searchChanged() {
   const searchValue = document.querySelector("#searchBar").value;
@@ -41,7 +70,19 @@ async function searchChanged() {
   console.log("Searchvalue:", searchValue);
   console.log("whereToSearch:", whereToSearch);
   const results = await searchDatabase(whereToSearch, searchValue);
+  const test2 = "tracks";
+  const test = `display${test2}`;
   console.log(results);
+  if (whereToSearch === "combined") {
+    displayEverything(results);
+  } else if (whereToSearch === "artists") {
+    displayArtists(results);
+  } else if (whereToSearch === "albums") {
+    displayAlbums(results);
+  } else if (whereToSearch === "tracks") {
+    displayTracks(results);
+  }
+  displaySelectedTables(whereToSearch);
 }
 
 function displayArtists(artistList) {
@@ -77,8 +118,8 @@ function displayTracks(trackList) {
   }
 }
 function displayAlbums(albumList) {
-  // const table = document.querySelector("#albums-table");
-  // table.innerHTML = "";
+  const table = document.querySelector("#albums-data");
+  table.innerHTML = "";
 
   for (const album of albumList) {
     document.querySelector("#albums-data").insertAdjacentHTML(
