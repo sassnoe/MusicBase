@@ -89,6 +89,9 @@ function displayArtists(artistList) {
   const table = document.querySelector("#artists-data");
   table.innerHTML = "";
 
+  if (artistList.length === 0) {
+    table.innerHTML="No artists found";
+  } else {
   for (const artist of artistList) {
     table.insertAdjacentHTML(
       "beforeend",
@@ -99,13 +102,17 @@ function displayArtists(artistList) {
         </tr>
       `
     );
+  }    
   }
 }
 function displayTracks(trackList) {
   const table = document.querySelector("#tracks-data");
   table.innerHTML = "";
 
-  for (const track of trackList) {
+  if (trackList.length === 0) {
+  table.innerHTML = "No tracks found";
+  } else {
+    for (const track of trackList) {
     table.insertAdjacentHTML(
       "beforeend",
       /* HTML */ `
@@ -117,11 +124,15 @@ function displayTracks(trackList) {
     );
   }
 }
+}
 function displayAlbums(albumList) {
   const table = document.querySelector("#albums-data");
   table.innerHTML = "";
 
-  for (const album of albumList) {
+  // if (!albumList) {
+  //   table.innerHTML = "No albums found";
+  // } else {
+    for (const album of albumList) {
     document.querySelector("#albums-data").insertAdjacentHTML(
       "beforeend",
       /* HTML */ `
@@ -131,5 +142,6 @@ function displayAlbums(albumList) {
         </tr>
       `
     );
+  // }
   }
 }
