@@ -167,3 +167,7 @@ select {
   scrollbar-width: thin;
   scrollbar-color: rgba(223, 135, 157, 0.884) rgb(162, 203, 241);
 }
+
+table th {
+  width: 25%;
+}
