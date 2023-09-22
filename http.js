@@ -14,12 +14,12 @@ async function readTracks() {
   return tracksData;
 }
 
-// // ---- Fetches a specific track ------ //
-// async function readTracks() {
-//   const response = await fetch(`${endpoint}/tracks${id}`);
-//   const tracksData = await response.json();
-//   return tracksData;
-// }
+// ---- Fetches a specific track ------ //
+async function readOneTrack() {
+  const response = await fetch(`${endpoint}/tracks${id}`);
+  const tracksData = await response.json();
+  return tracksData;
+}
 
 // ----- Fetches albums ---- //
 async function readAlbums() {
@@ -28,4 +28,4 @@ async function readAlbums() {
   return albumsData;
 }
 
-export { readArtists, readTracks, readAlbums };
+export { readArtists, readTracks, readOneTrack, readAlbums };
