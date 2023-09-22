@@ -1,4 +1,124 @@
 body {
-  background-color: #f0f0f0;
-  font-family: Arial, sans-serif;
+  background-image: linear-gradient(30deg, rgb(241, 79, 79), rgb(109, 178, 243));
+  background-position: fixed;
+  background-attachment: fixed;
+  margin: 0;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+h1 {
+  color: antiquewhite;
+}
+
+header {
+  text-align: center;
+  font-size: 1.5em;
+}
+
+button {
+  font-size: 0.8em;
+  padding: 12px 20px;
+  background-color: rgb(162, 203, 241);
+  color: rgba(99, 81, 4, 0.884);
+  border-radius: 5px;
+}
+
+button:hover {
+  cursor: pointer;
+}
+
+img {
+  /* display: inline-block; */
+  width: 20px;
+  height: 20px;
+  padding: 5px;
+  float: inline-end;
+  /* margin-top: 30px; */
+}
+
+img:hover {
+  cursor: pointer;
+}
+
+table {
+  text-align: center;
+  width: 80%;
+  font-size: 1.5em;
+  margin: 100px;
+  /* gap: 3px; */
+  /* border: 2px solid black; */
+  border-collapse: collapse;
+}
+
+tr {
+  margin: 20px;
+  /* border: 2px solid blue; */
+}
+
+th {
+  /* width: 10%; */
+  /* border-bottom: 2px solid black;
+    border-right: 2px solid black; */
+  border: 2px solid gainsboro;
+  margin: 30px;
+  padding: 15px;
+}
+
+td {
+  border: 1.5px solid lightblue;
+  padding: 13px;
+  padding-left: 20px;
+  text-align: left;
+  background-color: rgba(226, 179, 179, 0.5);
+}
+
+#sources {
+  display: none;
+}
+
+select {
+  background-color: rgb(190, 182, 182);
+  padding: 0.7em;
+  border-radius: 10px;
+  font-size: 0.6em;
+}
+
+input {
+  background-color: rgb(187, 172, 172);
+  border-radius: 5px;
+  /* border: rgb(39, 36, 36) solid 1px; */
+}
+
+#header-grid {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 40px;
+}
+
+#title-grid {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+
+input {
+  background-color: rgb(103, 214, 203, 0.9);
+  color: rgb(17, 11, 2);
+  padding: 10px;
+}
+
+input[type="checkbox"] {
+  display: block;
+  width: 2em;
+  height: 2em;
+  background-color: #412a2a;
+  color: red;
+}
+
+select {
+  background-color: rgb(103, 214, 203, 0.9);
+  padding: 10px;
 }

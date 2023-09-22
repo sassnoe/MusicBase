@@ -1,9 +1,12 @@
-const endpoint = "";
+
+const port = 3333
+const endpoint = `http://localhost:${port}`
 
 // ----- Fetches artists ----- //
 async function readArtists() {
   const response = await fetch(`${endpoint}/artists`);
   const artistsData = await response.json();
+  console.log(artistsData);
   return artistsData;
 }
 
@@ -28,4 +31,11 @@ async function readAlbums() {
   return albumsData;
 }
 
-export { readArtists, readTracks, readOneTrack, readAlbums };
+// ----- Searches for value ---- //
+async function searchDatabase(whereToSearch, searchValue) {
+    const response = await fetch(`${endpoint}/${whereToSearch}/search?q=${searchValue}`);
+  const tracksData = await response.json();
+  return tracksData;
+}
+
+export { readArtists, readTracks, readOneTrack, readAlbums, searchDatabase };

@@ -16,13 +16,45 @@
     </header>
 
     <main>
-      <div>
-        <input type="search" id="searchBar" placeholder="Search for artist, album or track" />
-      </div>
+      <select name="" id="searchSelect">
+        <option value="all">All</option>
+        <option value="artists">Artists</option>
+        <option value="albums">Albums</option>
+        <option value="tracks">Tracks</option>
+      </select>
+      <input type="search" id="searchBar" placeholder="Search for artist, album or track" />
 
-      <section id="grid-container"></section>
+      <section id="grid-container">
+        <table id="artists-table">
+          <thead>
+            <tr>
+              <th>Artist name</th>
+              <th>Birthdate</th>
+            </tr>
+          </thead>
+          <tbody id="artists-data"></tbody>
+        </table>
+        <table id="tracks-table">
+          <thead>
+            <tr>
+              <th>Track title</th>
+              <th>Duration</th>
+            </tr>
+          </thead>
+          <tbody id="tracks-data"></tbody>
+        </table>
+        <table id="albums-table">
+          <thead>
+            <tr>
+              <th>Album name</th>
+              <th>Release year</th>
+            </tr>
+          </thead>
+          <tbody id="albums-data"></tbody>
+        </table>
+      </section>
     </main>
   </body>
   <footer>Made by CodeQuest</footer>
-  <script src="app.js"></script>
+  <script type="module" src="app.js"></script>
 </html>
