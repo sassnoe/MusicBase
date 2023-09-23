@@ -1,5 +1,6 @@
-const port = 3333;
-const endpoint = `http://localhost:${port}`;
+// const port = 3333;
+// const endpoint = `http://localhost:${port}`;
+const endpoint = `https://codequest-node.azurewebsites.net/`;
 
 // ----- Fetches artists ----- //
 async function readArtists() {
@@ -33,7 +34,9 @@ async function readAlbums() {
 // ----- Searches for value ---- //
 async function searchDatabase(whereToSearch, searchValue) {
   console.log(whereToSearch, searchValue);
-  const response = await fetch(`${endpoint}/${whereToSearch}/search?q=${searchValue}`);
+  const response = await fetch(
+    `${endpoint}/${whereToSearch}/search?q=${searchValue}`
+  );
   const tracksData = await response.json();
   console.log(tracksData);
   return tracksData;
