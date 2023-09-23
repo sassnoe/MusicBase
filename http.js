@@ -1,3 +1,7 @@
+import { secondsToMinutesAndSeconds } from "./helpers.js";
+
+// const endpoint = `https://codequest-node.azurewebsites.net/`;
+
 const port = 3333;
 const endpoint = `http://localhost:${port}`;
 
@@ -13,6 +17,10 @@ async function readArtists() {
 async function readTracks() {
   const response = await fetch(`${endpoint}/tracks`);
   const tracksData = await response.json();
+  for (const track of tracksData) {
+    track.durationSeconds = secondsToMinutesAndSeconds(track.durationSeconds);
+  }
+  // const PROPER = secondsToMinutesAndSeconds(tracksData)
   return tracksData;
 }
 
@@ -32,11 +40,26 @@ async function readAlbums() {
 
 // ----- Searches for value ---- //
 async function searchDatabase(whereToSearch, searchValue) {
-  console.log(whereToSearch, searchValue);
   const response = await fetch(`${endpoint}/${whereToSearch}/search?q=${searchValue}`);
   const tracksData = await response.json();
-  console.log(tracksData);
+
+  if (tracksData.tracks) {
+    for (const track of tracksData.tracks) {
+      track.durationSeconds = secondsToMinutesAndSeconds(track.durationSeconds);
+    }
+  }
+
   return tracksData;
 }
 
-export { readArtists, readTracks, readOneTrack, readAlbums, searchDatabase };
+async function findAlbumsByArtist(whereToSearch, searchID) {
+  const response = await fetch(`${endpoint}/${whereToSearch}/search/${searchID}`);
+  return await response.json();
+}
+
+async function findTracksByAlbum(whereToSearch, searchID) {
+  const response = await fetch(`${endpoint}/${whereToSearch}/${searchID}`);
+  return await response.json();
+}
+
+export { readArtists, readTracks, readOneTrack, readAlbums, searchDatabase, findAlbumsByArtist, findTracksByAlbum };
