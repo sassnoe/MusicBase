@@ -1,4 +1,10 @@
-import { readArtists, readTracks, readOneTrack, readAlbums, searchDatabase } from "./http.js";
+import {
+  readArtists,
+  readTracks,
+  readOneTrack,
+  readAlbums,
+  searchDatabase,
+} from "./http.js";
 
 window.addEventListener("load", initApp);
 
@@ -13,9 +19,13 @@ async function initApp(params) {
 }
 
 function globalEventListeners() {
-  document.querySelector("#searchSelect").addEventListener("change", searchChanged);
+  document
+    .querySelector("#searchSelect")
+    .addEventListener("change", searchChanged);
   document.querySelector("#searchBar").addEventListener("keyup", searchChanged);
-  document.querySelector("#searchBar").addEventListener("search", searchChanged);
+  document
+    .querySelector("#searchBar")
+    .addEventListener("search", searchChanged);
   // document.querySelector("#btn-all").addEventListener("click", changeView);
   // document.querySelector("#btn-artists").addEventListener("click", changeView);
   // document.querySelector("#btn-albums").addEventListener("click", changeView);
@@ -90,19 +100,19 @@ function displayArtists(artistList) {
   table.innerHTML = "";
 
   if (artistList.length === 0) {
-    table.innerHTML="No artists found";
+    table.innerHTML = "No Artists Found";
   } else {
-  for (const artist of artistList) {
-    table.insertAdjacentHTML(
-      "beforeend",
-      /* HTML */ `
-        <tr>
-          <td>${artist.name}</td>
-          <td>${artist.birthdate}</td>
-        </tr>
-      `
-    );
-  }    
+    for (const artist of artistList) {
+      table.insertAdjacentHTML(
+        "beforeend",
+        /* HTML */ `
+          <tr>
+            <td>${artist.name}</td>
+            <td>${artist.birthdate}</td>
+          </tr>
+        `
+      );
+    }
   }
 }
 function displayTracks(trackList) {
@@ -110,20 +120,20 @@ function displayTracks(trackList) {
   table.innerHTML = "";
 
   if (trackList.length === 0) {
-  table.innerHTML = "No tracks found";
+    table.innerHTML = "No Tracks Found";
   } else {
     for (const track of trackList) {
-    table.insertAdjacentHTML(
-      "beforeend",
-      /* HTML */ `
-        <tr>
-          <td>${track.title}</td>
-          <td>${track.durationSeconds}</td>
-        </tr>
-      `
-    );
+      table.insertAdjacentHTML(
+        "beforeend",
+        /* HTML */ `
+          <tr>
+            <td>${track.title}</td>
+            <td>${track.durationSeconds}</td>
+          </tr>
+        `
+      );
+    }
   }
-}
 }
 function displayAlbums(albumList) {
   const table = document.querySelector("#albums-data");
