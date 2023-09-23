@@ -129,9 +129,10 @@ function displayAlbums(albumList) {
   const table = document.querySelector("#albums-data");
   table.innerHTML = "";
 
-  // if (!albumList) {
-  //   table.innerHTML = "No albums found";
-  // } else {
+  if (albumList.length === 0) {
+    table.innerHTML = "No albums found";
+  } else {
+    console.log("else");
     for (const album of albumList) {
     document.querySelector("#albums-data").insertAdjacentHTML(
       "beforeend",
@@ -142,6 +143,6 @@ function displayAlbums(albumList) {
         </tr>
       `
     );
-  // }
+  }
   }
 }
