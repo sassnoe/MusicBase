@@ -143,7 +143,6 @@ function displayTracks(trackList) {
 
   if (trackList.length === 0) {
     table.innerHTML = "No Tracks Found";
-    table.innerHTML = "No tracks found";
   } else {
     for (const track of trackList) {
       table.insertAdjacentHTML(
@@ -164,7 +163,7 @@ function displayAlbums(albumList) {
   table.innerHTML = "";
 
   if (albumList.length === 0) {
-    table.innerHTML = "No albums found";
+    table.innerHTML = "No Albums Found";
   } else {
     for (const album of albumList) {
       document.querySelector("#albums-data").insertAdjacentHTML(
