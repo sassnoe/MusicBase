@@ -6,12 +6,18 @@ function secondsToMinutesAndSeconds(seconds) {
   // Add leading zeros if necessary
   let formattedMinutes;
 
-  if (minutes < 10)   {formattedMinutes = "0" + minutes;}
-  else {formattedMinutes = minutes;};
+  if (minutes < 10) {
+    formattedMinutes = "0" + minutes;
+  } else {
+    formattedMinutes = minutes;
+  }
 
   let formattedSeconds;
-  if (remainingSeconds < 10) {formattedSeconds ="0" + remainingSeconds}
-  else  {formattedSeconds = remainingSeconds};
+  if (remainingSeconds < 10) {
+    formattedSeconds = "0" + remainingSeconds;
+  } else {
+    formattedSeconds = remainingSeconds;
+  }
 
   // Combine minutes and seconds with a colon
   let formattedTime = formattedMinutes + ":" + formattedSeconds;
@@ -19,4 +25,4 @@ function secondsToMinutesAndSeconds(seconds) {
   return formattedTime;
 }
 
-export {secondsToMinutesAndSeconds}
+export { secondsToMinutesAndSeconds };

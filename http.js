@@ -31,6 +31,8 @@ async function findTracksByAlbum(whereToSearch, searchID) {
   return tracksData;
 }
 
+export { searchDatabase, findAlbumsByArtist, findTracksByAlbum };
+
 // // ----- Fetches artists ----- //
 // async function readArtists() {
 //   const response = await fetch(`${endpoint}/artists`);
@@ -65,5 +67,3 @@ async function findTracksByAlbum(whereToSearch, searchID) {
 // }
 
 // ----- Searches for value ---- //
-
-export { searchDatabase, findAlbumsByArtist, findTracksByAlbum };
