@@ -113,7 +113,8 @@ function displayArtists(artistList) {
     for (const artist of artistList) {
       table.insertAdjacentHTML(
         "beforeend",
-        /* HTML */ `
+        /* HTML */
+        `
           <tr>
             <td>${artist.name}</td>
             <td>${artist.birthdate}</td>
@@ -134,7 +135,8 @@ function displayTracks(trackList) {
     for (const track of trackList) {
       table.insertAdjacentHTML(
         "beforeend",
-        /* HTML */ `
+        /* HTML */
+        `
           <tr>
             <td>${track.title}</td>
             <td>${track.artistName}</td>
@@ -156,7 +158,8 @@ function displayAlbums(albumList) {
     for (const album of albumList) {
       document.querySelector("#albums-data").insertAdjacentHTML(
         "beforeend",
-        /* HTML */ `
+        /* HTML */
+        `
           <tr>
             <td>${album.title}</td>
             <td>${album.artistName}</td>

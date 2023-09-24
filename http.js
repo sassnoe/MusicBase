@@ -1,9 +1,9 @@
 import { secondsToMinutesAndSeconds } from "./helpers.js";
 
-// const endpoint = `https://codequest-node.azurewebsites.net/`;
+const endpoint = `https://codequest-node.azurewebsites.net/`;
 
-const port = 3333;
-const endpoint = `http://localhost:${port}`;
+// const port = 3333;
+// const endpoint = `http://localhost:${port}`;
 
 async function searchDatabase(whereToSearch, searchValue) {
   const response = await fetch(`${endpoint}/${whereToSearch}/search?q=${searchValue}`);

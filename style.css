@@ -8,6 +8,7 @@ body {
 
 h1 {
   color: antiquewhite;
+  font-size: 2em;
 }
 
 header {
@@ -21,58 +22,33 @@ button {
   background-color: rgb(162, 203, 241);
   color: rgba(99, 81, 4, 0.884);
   border-radius: 5px;
-}
-
-button:hover {
   cursor: pointer;
 }
 
 img {
-  /* display: inline-block; */
   width: 20px;
   height: 20px;
   padding: 5px;
-  float: inline-end;
-  /* margin-top: 30px; */
-}
-
-img:hover {
   cursor: pointer;
 }
 
 table {
   text-align: center;
-  width: 80%;
-  font-size: 1.5em;
-  margin: 100px;
-  /* gap: 3px; */
-  /* border: 2px solid black; */
+  width: 100%;
+  font-size: 1.2em;
+  margin: 0 auto;
   border-collapse: collapse;
-}
-
-/* thead {
+  max-height: 400px;
   overflow-y: auto;
-} */
-
-#test {
-  height: 400px;
-  overflow-y: auto;
+  border: 2px solid gainsboro;
+  padding: 0;
 }
-/* 
-#test thead th {
-  position: sticky;
-  top: 0px;
-} */
 
 tr {
   margin: 20px;
-  /* border: 2px solid blue; */
 }
 
 th {
-  /* width: 10%; */
-  /* border-bottom: 2px solid black;
-    border-right: 2px solid black; */
   border: 2px solid gainsboro;
   margin: 30px;
   padding: 15px;
@@ -100,22 +76,46 @@ select {
 input {
   background-color: rgb(187, 172, 172);
   border-radius: 5px;
-  /* border: rgb(39, 36, 36) solid 1px; */
+  padding: 15px;
+  margin: 15px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-weight: 5000;
+  font-size: 0.7em;
+  width: fit-content;
 }
 
-#header-grid {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  gap: 40px;
+input[type="checkbox"] {
+  display: block;
+  width: 2em;
+  height: 2em;
+  background-color: #412a2a;
+  color: red;
 }
 
-#title-grid {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 20px;
+/* Add the new CSS for the sections */
+#grid-container-artist thead,
+#grid-container-album thead,
+#grid-container-tracks thead {
+  position: sticky;
+  top: 0;
+  background-color: white;
+  z-index: 1;
+}
+
+/* Apply styles to th elements within the sticky thead */
+#grid-container-artist th,
+#grid-container-album th,
+#grid-container-tracks th {
+  margin: 30px;
+  padding: 15px;
+}
+
+#grid-container-artist,
+#grid-container-album,
+#grid-container-tracks {
+  max-height: 400px; /* Adjust the maximum height as needed */
+  overflow-y: auto;
+  margin-bottom: 20px; /* Optional: Add some space between sections */
 }
 
 input,
@@ -129,19 +129,70 @@ select {
   font-size: 0.7em;
   width: fit-content;
 }
-/* input {
-  width: 400px;
-} */
 
-input[type="checkbox"] {
-  display: block;
-  width: 2em;
-  height: 2em;
-  background-color: #412a2a;
-  color: red;
+/* WebKit (Chrome, Safari) scrollbar styling */
+#grid-container-artist::-webkit-scrollbar,
+#grid-container-album::-webkit-scrollbar,
+#grid-container-tracks::-webkit-scrollbar {
+  width: 12px; /* Width of the scrollbar */
+  margin: 0;
+  padding: 0;
 }
 
-/* select {
-  background-color: rgb(103, 214, 203, 0.9);
-  padding: 10px;
-} */
+#grid-container-artist::-webkit-scrollbar-thumb,
+#grid-container-album::-webkit-scrollbar-thumb,
+#grid-container-tracks::-webkit-scrollbar-thumb {
+  background-color: rgba(226, 136, 136, 0.5); /* Color of the thumb */
+  border-radius: 10px; /* Rounded corners for the thumb */
+  margin: 0;
+  padding: 0;
+}
+
+#grid-container-artist::-webkit-scrollbar-track,
+#grid-container-album::-webkit-scrollbar-track,
+#grid-container-tracks::-webkit-scrollbar-track {
+  background-color: rgb(162, 203, 241); /* Color of the track */
+  margin: 0;
+  padding: 0;
+}
+
+/* For Firefox scrollbar styling */
+#grid-container-artist,
+#grid-container-album,
+#grid-container-tracks {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(223, 135, 157, 0.884) rgb(162, 203, 241);
+}
+
+/* Just a little extra niceness */
+table th {
+  width: 25%;
+}
+
+#top-tables-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+
+  align-content: center;
+  align-items: center;
+  justify-content: center;
+  justify-items: center;
+}
+
+#top-tables-grid section {
+  width: 75%;
+}
+
+#grid-container-tracks {
+  width: 80%;
+  align-content: center;
+  align-items: center;
+  justify-content: center;
+  justify-items: center;
+  justify-self: center;
+  margin-left: 10%;
+}
+
+footer {
+  text-align: center;
+}
