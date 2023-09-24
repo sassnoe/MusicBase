@@ -30,7 +30,6 @@ async function searchChanged() {
   // If there's only one (1) match, it also fetches either albums for the given artist or tracks for the given album
   // This way we can see the details of one artist or album without any "clicking around" (which we're not allowed to do)
   // It also sets whereToSearch to include two values, so displaySelectedTables shows the correct amount of tables
-
   if (results.artists && whereToSearch === "artists" && results.artists.length === 1) {
     const idOfArtist = results.artists[0].id;
     whereToSearch = ["artists", "albums"];
@@ -40,7 +39,7 @@ async function searchChanged() {
     whereToSearch = ["albums", "tracks"];
     results.tracks = await findTracksByAlbum("albums", idOfAlbum);
   }
-  // console.log("RESULTS:", results);
+  console.log("RESULTS:", results);
   displayBasedOnSearch(whereToSearch, results);
 }
 
@@ -61,6 +60,7 @@ function displayBasedOnSearch(whereToSearch, results) {
       // When searching for a specific album, the track data is an array nested inside the single album... which is also nested inside results.
       // Otherwise it's just an array inside results
       if (results.tracks.tracks) {
+        results.tracks.tracks.forEach((track) => (track.artistName = results.tracks.artist));
         displayTracks(results.tracks.tracks);
       } else {
         displayTracks(results.tracks);
@@ -126,6 +126,7 @@ function displayArtists(artistList) {
     }
   }
 }
+
 function displayTracks(trackList) {
   const table = document.querySelector("#tracks-data");
   table.innerHTML = "";
@@ -147,6 +148,7 @@ function displayTracks(trackList) {
     }
   }
 }
+
 function displayAlbums(albumList) {
   const table = document.querySelector("#albums-data");
   table.innerHTML = "";
