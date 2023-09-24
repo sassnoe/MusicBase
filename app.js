@@ -124,17 +124,6 @@ function displayArtists(artistList) {
         `
       );
     }
-    for (const artist of artistList) {
-      table.insertAdjacentHTML(
-        "beforeend",
-        /* HTML */ `
-          <tr>
-            <td>${artist.name}</td>
-            <td>${artist.birthdate}</td>
-          </tr>
-        `
-      );
-    }
   }
 }
 
