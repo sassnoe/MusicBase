@@ -2,9 +2,6 @@ import { searchDatabase, findAlbumsByArtist, findTracksByAlbum } from "./http.js
 
 window.addEventListener("load", initApp);
 
-// ========== GLOBAL VARIABLES ========== //
-let artists;
-
 async function initApp() {
   console.log("Siden kører.");
   globalEventListeners();
